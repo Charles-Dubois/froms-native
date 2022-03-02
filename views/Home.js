@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <SafeAreaView>
-      <Text>{context.userEmail}</Text>
+      <Text>User's e-mail : {context.userEmail}</Text>
       <TouchableOpacity
         style={styles.btn}
         onPress={() => context.setIsLoggedIn()}

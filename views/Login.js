@@ -15,11 +15,9 @@ export default function Login() {
   const [passwordCheck, setPasswordCheck] = useState(false);
   const handleMail = (bool) => {
     setMailCheck(bool);
-    console.log(mailCheck);
   };
   const handlePassword = (bool) => {
     setPasswordCheck(bool);
-    console.log(passwordCheck);
   };
   const validateEmail = (email) => {
     context.setUserEmail(email);

@@ -1,6 +1,7 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import { useState, createContext } from "react";
 import { NativeRouter, Routes, Route } from "react-router-native";
+
 import Login from "./views/Login";
 import Home from "./views/Home";
 
@@ -18,7 +19,7 @@ export default function App() {
     userEmail: userEmail,
     setUserEmail: setUserEmail,
   };
-  console.log(contextValue.isLoggedIn);
+
   const renderLoggedIn = () => {
     return isLoggedIn ? (
       <Home context={contextValue} />
