@@ -7,8 +7,10 @@ import {
   Alert,
 } from "react-native";
 import { useState, useContext } from "react";
+import { Context } from "../App";
 
 export default function Login() {
+  const context = useContext(Context);
   const [mailCheck, setMailCheck] = useState(false);
   const [passwordCheck, setPasswordCheck] = useState(false);
   const handleMail = (bool) => {
@@ -20,6 +22,7 @@ export default function Login() {
     console.log(passwordCheck);
   };
   const validateEmail = (email) => {
+    context.setUserEmail(email);
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (emailRegex.test(email)) {
       return handleMail(true);
@@ -39,7 +42,7 @@ export default function Login() {
 
   const handlePress = () => {
     if (mailCheck && passwordCheck) {
-      Alert.alert("Valid form");
+      return context.setIsLoggedIn();
     } else if (!mailCheck && !!passwordCheck) {
       Alert.alert("Inalid form");
     } else if (!mailCheck) {

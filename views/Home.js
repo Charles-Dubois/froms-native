@@ -1,13 +1,17 @@
 import { SafeAreaView, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useContext } from "react";
-import Context from "../App";
-import React from "react";
+import { Context } from "../App";
+
 export default function Home() {
   const context = useContext(Context);
-  console.log(context);
+
   return (
     <SafeAreaView>
-      <TouchableOpacity style={styles.btn}>
+      <Text>{context.userEmail}</Text>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={() => context.setIsLoggedIn()}
+      >
         <Text style={styles.textBtn}>Logout</Text>
       </TouchableOpacity>
     </SafeAreaView>

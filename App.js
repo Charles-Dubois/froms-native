@@ -3,11 +3,11 @@ import { useState, createContext } from "react";
 import { NativeRouter, Routes, Route } from "react-router-native";
 import Login from "./views/Login";
 import Home from "./views/Home";
-import React from "react";
-export const Context = React.createContext("default value");
-export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+export const Context = createContext("default value");
+export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
   const handleLoggedIn = () => {
     setIsLoggedIn((prev) => !prev);
   };
@@ -15,6 +15,8 @@ export default function App() {
   const contextValue = {
     isLoggedIn: isLoggedIn,
     setIsLoggedIn: handleLoggedIn,
+    userEmail: userEmail,
+    setUserEmail: setUserEmail,
   };
   console.log(contextValue.isLoggedIn);
   const renderLoggedIn = () => {
@@ -44,3 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+// Que pensez-vous de l'utilité de garder un booléen isLoggedIn dans votre context sur une application mobile ?
+// (écrivez votre réponse en commentaire dans votre code et argumentez)
+//! Inutile
+// Obligation de se reconnecter lorsqu'on ferme et re ouvre l'application
